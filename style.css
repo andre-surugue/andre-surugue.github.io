@@ -1,0 +1,66 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+}
+
+header.hero {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+header.hero .profile-pic {
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 15px;
+}
+header.hero .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: white;
+  color: #4e73df;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+header.hero .btn:hover {
+  background: #ddd;
+}
+
+nav {
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 250px;
+}
