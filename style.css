@@ -64,3 +64,12 @@ main {
   flex: 1;
   min-width: 250px;
 }
+
+.profile-pic {
+  width: 180px;
+  height: auto;
+  border-radius: 0; /* enlève l'effet ovale */
+  border: 3px solid #333; /* ajoute un cadre */
+  display: block;
+  margin: 0 auto 1rem auto;
+}
