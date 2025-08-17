@@ -9,31 +9,76 @@
 <body>
   <header class="hero">
     <h1>Expérience professionnelle</h1>
-    <p>Mon parcours et mes expériences en développement web</p>
+    <p>Mes domaines d’expertise</p>
   </header>
 
   <main>
     <div class="timeline">
+
+      <!-- Exemple de rubrique -->
       <div class="timeline-item">
         <div class="timeline-content">
-          <h2>Développeur Web Freelance</h2>
-          <span class="date">2023 - Aujourd’hui</span>
-          <p>Réalisation de projets web en Django et React.</p>
+          <h2>Contrôle de gestion</h2>
+          <p>Analyse des coûts, suivi budgétaire, mise en place d’indicateurs de performance.</p>
+        </div>
+        <div class="timeline-image">
+          <img src="assets/gestion-controle.jpg" alt="Contrôle de gestion" class="popup-img">
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-content">
-          <h2>Stage Développeur Fullstack</h2>
-          <span class="date">2022</span>
-          <p>Développement d’une application interne (Python / Vue.js).</p>
+          <h2>Gestion industrielle</h2>
+          <p>Optimisation des processus de production, planification et gestion des ressources.</p>
+        </div>
+        <div class="timeline-image">
+          <img src="assets/gestion-industrielle.jpg" alt="Gestion industrielle" class="popup-img">
         </div>
       </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h2>Suivi d'activité</h2>
+          <p>Tableaux de bord, reporting régulier et pilotage des activités opérationnelles.</p>
+        </div>
+        <div class="timeline-image">
+          <img src="assets/suivi-activite.jpg" alt="Suivi d'activité" class="popup-img">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h2>Analyse d'activité</h2>
+          <p>Étude des données opérationnelles, identification des tendances et recommandations stratégiques.</p>
+        </div>
+        <div class="timeline-image">
+          <img src="assets/business-analysis.jpg" alt="Analyse d'activité" class="popup-img">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h2>Organisation</h2>
+          <p>Structuration des équipes, gestion de projet et amélioration continue.</p>
+        </div>
+        <div class="timeline-image">
+          <img src="assets/organisation.jpg" alt="Organisation" class="popup-img">
+        </div>
+      </div>
+
     </div>
   </main>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <span class="close">&times;</span>
+    <img class="popup-content" id="popup-img">
+  </div>
 
   <footer>
     <p><a href="index.html">⬅ Retour au CV</a></p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

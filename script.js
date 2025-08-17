@@ -16,3 +16,27 @@ async function loadJobs() {
 }
 
 loadJobs();
+
+// Popup photo
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popup-img");
+const images = document.querySelectorAll(".popup-img");
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    popup.style.display = "block";
+    popupImg.src = img.src;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+// Fermer popup si clic à l'extérieur de l'image
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+});
