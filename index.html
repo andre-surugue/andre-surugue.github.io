@@ -5,59 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - André Surugue</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 600px; /* Ajuster selon le contenu */
+      border: none;
+    }
+  </style>
 </head>
 <body>
   <header class="hero">
-    <img src="assets/photo.jpg" alt="Photo de profil" class="profile-pic">
     <h1>André Surugue</h1>
     <p>Développeur Web | À la recherche d’opportunités</p>
-    <a href="#contact" class="btn">Me contacter</a>
   </header>
 
   <nav>
-    <a href="#about">À propos</a>
-    <a href="experience.html">Expérience professionnelle</a>
-    <a href="#projects">Projets</a>
-    <a href="#jobsearch">Suivi emploi</a>
-    <a href="#contact">Contact</a>
+    <a href="#" data-page="projects.html">Projets</a>
+    <a href="#" data-page="education.html">Formation</a>
+    <a href="#" data-page="experience.html">Expérience</a>
+    <a href="#" data-page="position.html">Poste</a>
+    <a href="#" data-page="jobsearch.html">Suivi</a>
   </nav>
 
   <main>
-    <section id="about">
-      <h2>À propos</h2>
-      <p>Je teste web (Django, Python, JS). Je conçois des projets utiles comme <strong>HomeSkolar</strong>.</p>
-    </section>
-
-    <section id="projects">
-      <h2>Projets</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>HomeSkolar</h3>
-          <p>Plateforme éducative développée avec Django et SQLite.</p>
-          <a href="https://github.com/andre-surugue/homeskolar">Voir le projet</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="jobsearch">
-      <h2>Suivi de ma recherche d’emploi</h2>
-      <div id="jobs-table">
-        <!-- Tableau généré via CSV -->
-      </div>
-    </section>
+    <iframe id="content-frame" src=""></iframe>
   </main>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email : <a href="mailto:andre@mail.com">andre@mail.com</a></p>
-    <p>LinkedIn : <a href="https://linkedin.com/in/andre">linkedin.com/in/andre</a></p>
-    <p>GitHub : <a href="https://github.com/andre-surugue">andre-surugue</a></p>
-  </section>
 
   <footer>
     <p>© 2025 André Surugue</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const links = document.querySelectorAll('nav a');
+    const iframe = document.getElementById('content-frame');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const page = link.dataset.page;
+        iframe.src = page; // charge le fichier complet
+      });
+    });
+  </script>
 </body>
 </html>

@@ -16,24 +16,24 @@ h1, h2, h3 {
 /* 🎯 En-tête */
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 1.5rem 1rem; /* bandeau plus étroit */
   background: linear-gradient(135deg, #0a74da, #003366);
   color: white;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .profile-pic {
-  width: 60px;
+  width: 60px;          /* taille petite */
   height: auto;
-  border-radius: 0;
-  border: 2px solid #003366;
+  border-radius: 0;     /* rectangulaire */
+  border: 2px solid #003366; /* bleu nuit */
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   display: block;
   margin: 0 auto 1rem auto;
@@ -42,8 +42,8 @@ h1, h2, h3 {
 /* 🔗 Boutons */
 .btn {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
-  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
   background: white;
   color: #0a74da;
   border-radius: 30px;
@@ -62,8 +62,9 @@ h1, h2, h3 {
 nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.8rem;
   background: #003366;
 }
 
@@ -81,7 +82,7 @@ nav a:hover {
 /* 📄 Sections */
 main, section {
   padding: 2rem 1.5rem;
-  max-width: 1000px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -90,36 +91,12 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-/* 🗂️ Cartes (Projets & Expérience) */
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #003366;
-}
-
 /* 📩 Contact */
 #contact {
   background: #eef3f8;
   padding: 2rem;
   border-top: 2px solid #0a74da;
+  text-align: center;
 }
 
 #contact a {
@@ -141,136 +118,116 @@ footer {
   margin-top: 2rem;
 }
 
-/* 📌 Timeline Expérience */
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
+/* 🕒 Timeline */
 .timeline {
   position: relative;
-  max-width: 800px;
-  margin: 3rem auto;
-  padding-left: 60px; /* espace pour ligne à gauche */
+  margin: 2rem 0;
+  padding-left: 40px; /* espace pour la ligne */
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 20px; /* position de la ligne verticale */
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #0a74da;
+  background: #0a74da; /* bleu */
 }
 
 .timeline-item {
-  position: relative;
-  margin: 2rem 0;
   display: flex;
-  gap: 1rem;
   align-items: flex-start;
-}
-
-.timeline-content {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex: 0 0 46%; /* réduit de 30% */
+  margin-bottom: 2rem;
   position: relative;
 }
 
-
-.timeline-content::before {
+.timeline-item::before {
   content: '';
   position: absolute;
-  top: 20px;
-  left: -34px;
-  width: 20px;
-  height: 20px;
+  left: 14px; /* centré sur la ligne */
+  width: 12px;
+  height: 12px;
   background: #0a74da;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #f9f9f9;
+  top: 5px;
 }
 
-.date {
-  display: block;
-  font-weight: bold;
-  color: #0a74da;
-  margin-bottom: 0.5rem;
+/* Texte réduit de 20% supplémentaire (donc ~45% largeur) */
+.timeline-content {
+  flex: 0 0 45%; /* plus petit */
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-right: 2rem;
 }
 
-/* 📸 Image miniature */
 .timeline-image {
-  width: 250px;
-  flex-shrink: 0;
-  cursor: pointer;
-  border-radius: 12px;
+  flex: 0 0 120px; /* largeur fixe pour la miniature */
+  height: 90px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .timeline-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.2s;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .timeline-image img:hover {
   transform: scale(1.05);
 }
 
-/* 🔍 Popup image */
+/* Popup images */
 .popup {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
   padding-top: 60px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background-color: rgba(0,0,0,0.8);
 }
 
 .popup-content {
   margin: auto;
   display: block;
-  max-width: 80%;
+  max-width: 90%;
   max-height: 80%;
-  border-radius: 12px;
 }
 
 .close {
   position: absolute;
   top: 20px;
-  right: 40px;
-  color: white;
+  right: 35px;
+  color: #fff;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .timeline {
-    padding-left: 20px;
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    width: 100%;
-    padding-left: 0;
-    margin: 2rem 0;
-  }
-
-  .timeline-content {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .timeline-content::before {
-    left: -34px;
-  }
-
-  .timeline-image {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+.close:hover {
+  color: #bbb;
 }
