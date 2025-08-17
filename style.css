@@ -233,3 +233,8 @@ footer {
 .close:hover {
   color: #bbb;
 }
+
+small {
+  font-style: italic;
+  font-size: 0.85em; /* un peu plus petit que le texte normal */
+}
