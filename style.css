@@ -83,40 +83,32 @@ footer {
 }
 
 /* TIMELINE */
-.timeline {
-  width: 70%;
-  padding-left: 40px;
-  box-sizing: border-box;
-  position: relative;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #0a74da;
-}
-.timeline-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  position: relative;
-}
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 14px;
-  width: 12px;
-  height: 12px;
-  background: #0a74da;
-  border-radius: 50%;
-  top: 5px;
-}
-.timeline-content { flex: 1; margin-left: 10px; max-width: 100%; }
-.timeline-image { flex: 0 0 120px; height: 90px; overflow: hidden; border-radius: 8px; }
-.timeline-image img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: transform 0.3s; }
+ /* Ajustement spécifique pour cette page */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem auto;
+      max-width: 800px; /* même largeur que les capsules précédentes */
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: center; /* centrer le texte */
+    }
+
+    .timeline-content {
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%; 
+      max-width: 500px; /* même max-width que précédemment */
+      text-align: center; /* texte centré */
+    }
+
+   
+.timeline-image img { width: 150px; height: 80px; overflow :hidden; object-fit: cover; cursor: pointer; transition: transform 0.8s; }
 .timeline-image img:hover { transform: scale(1.05); }
 
 /* POPUP */
@@ -124,3 +116,57 @@ footer {
 .popup-content { margin: auto; display: block; max-width: 90%; max-height: 80%; }
 .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
 .close:hover { color: #bbb; }
+
+/* Timeline générale */
+.timeline {
+  position: relative; /* nécessaire pour que les ::before des enfants se positionnent correctement */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+/* Ligne verticale */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;          /* distance depuis le bord gauche */
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #0a74da;
+  z-index: 0;          /* derrière le contenu */
+}
+
+/* Chaque élément du timeline */
+.timeline-item {
+  position: relative;  /* pour que sa boule soit positionnée par rapport à lui */
+  display: flex;
+}
+
+/* Boule par élément */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 26px;          /* centré sur la ligne (ligne 4px + boule 12px) */
+  top: 10px;           /* ajuster pour centrer par rapport au contenu */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #5c0909;
+  z-index: 1;          /* devant la ligne mais derrière le texte */
+}
+
+/* Contenu du timeline (texte/fenêtre) */
+.timeline-content {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-left: 60px;   /* espace pour la ligne + boule */
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;          /* devant la ligne et la boule */
+}

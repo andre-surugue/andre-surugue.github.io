@@ -41,14 +41,37 @@
     }
 
     nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  position: relative;
+  padding: 6px 0;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
 
-    nav a:hover {
-      color: red;
-    }
+/* effet de soulignement animé */
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: red; 
+  transition: width 0.3s ease;
+}
+
+/* hover effect */
+nav a:hover {
+  color: rgb(170, 18, 175);                       /* texte rouge */
+  transform: scale(1.1);            /* léger zoom */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3); /* ombre subtile */
+}
+
+nav a:hover::after {
+  width: 100%;                       /* soulignement qui s'étend */
+}
 
     main {
       flex: 1;
